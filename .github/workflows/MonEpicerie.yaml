@@ -1,0 +1,34 @@
+name: Test Automatique MonEpicerie
+
+on: 
+  push:
+    branches:
+      - main
+      - develop
+
+  pull_request:
+    branches:
+      - main
+      - develop
+
+
+jobs:
+
+  tester-le-code:
+    runs-on: ubuntu-latest
+
+    steps:
+     
+      - name: Récupérer le code source
+        uses: actions/checkout@v4
+  
+      - name: Installation de Go dans la machine virtuel
+        uses: actions/setup-go@v5
+        with:
+          go-version: 'stable'
+      
+      - name: Télécharger les modules
+        run: go mod download
+  
+      - name: Lancer les tests
+        run: go test -v ./...
