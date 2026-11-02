@@ -32,6 +32,8 @@ func EstEnRupture(Qte uint8) bool{
 }
 
 
+
+
 func ObtenirCatalogue() map[string]Produit {
 
 	stocks := map[string]Produit{
